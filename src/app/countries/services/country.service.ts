@@ -26,5 +26,11 @@ export class CountryService {
   }
 
   
+  public searchByRegion(txtSearch:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/region/${txtSearch}`;
+    return this.http.get<Country[]>(url);
+  }
+
+  
   constructor(private http:HttpClient) { }
 }
