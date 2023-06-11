@@ -15,24 +15,25 @@ export class ByCountryComponent {
   isError:boolean=false;
   txtInput:string='';
   countries:Country[]=[];
-  countriesSugestion:Country[]=[];
+  countriesSuggestion:Country[]=[];
   placeHolder:string = 'Search Country';
 
   public suggestions(txtInput:string){
-    this.countriesSugestion = [];
+    this.countriesSuggestion = [];
     this.isError = false;
 
 
     if(txtInput.length<=2) return;
     this.countryService.searchCountry(txtInput).subscribe(
       countries=>{
-        this.countriesSugestion = countries.slice(0,5);
+        this.countriesSuggestion = countries.slice(0,5);
       },
-      error=>this.countriesSugestion=[]
+      error=>this.countriesSuggestion=[]
     );
   }
   
   public search(txtInput:string){
+    this.countriesSuggestion = [];
     this.txtInput = txtInput;
     this.countryService
       .searchCountry(this.txtInput)

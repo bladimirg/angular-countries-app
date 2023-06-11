@@ -10,10 +10,10 @@
     </div>
 </div>
 <ul class="ps-0 ms-1 me-1" 
-    *ngIf="countriesSugestion.length>0"
+    *ngIf="countriesSuggestion.length>0"
     >
     <li class="list-group-item list-group-item-action"
-    *ngFor="let countrySugestion of countriesSugestion"
+    *ngFor="let countrySugestion of countriesSuggestion"
     > 
     <a [routerLink]="['/country',countrySugestion.alpha2Code]">
         {{countrySugestion.name}}
