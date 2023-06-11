@@ -6,10 +6,20 @@
         (onEnter)="search($event)"
         (onDebounce)="suggestions($event)"
         [placeHolder]="placeHolder"
-
         ></app-country-input>
     </div>
 </div>
+<ul class="ps-0 ms-1 me-1" 
+    *ngIf="countriesSugestion.length>0"
+    >
+    <li class="list-group-item list-group-item-action"
+    *ngFor="let countrySugestion of countriesSugestion"
+    > 
+    <a [routerLink]="['/country',countrySugestion.alpha2Code]">
+        {{countrySugestion.name}}
+    </a>
+    </li>
+</ul>
 <hr>
 <div class="alert alert-danger" *ngIf="isError">
     No elements found
